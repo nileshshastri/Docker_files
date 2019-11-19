@@ -2,12 +2,15 @@ version: "3"
 services:
   nginx:
     build: ./nginx
+    restart: always
     ports:
       - 800:800
       - 8001:8001 
-#    volumes:
-#      - /opt/containers/personal/nginx/certs:/certs
+    volumes:
+      - data-nginx:/etc/nginx
     depends_on: 
+      - web
+    links:
       - web
     networks:
       - webdbnet
@@ -36,4 +39,4 @@ networks:
 
 volumes:
   web-data:
-
+  data-nginx:
