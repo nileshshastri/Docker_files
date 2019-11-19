@@ -18,6 +18,7 @@ services:
       # - /opt/containers/personal/php:/var/www/html
       # Example of docker volume mounted in container
       - web-data:/var/www
+    working_dir: /var/www
     networks:
       - webdbnet
   db:
